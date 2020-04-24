@@ -86,7 +86,7 @@ myos() {
 ###           GROBLE DEFINE           ###
 #########################################
 
-VERSION=2.0.0+mod_by_m2nlight
+VERSION=2.0.0+mod_by_m2nlight_1
 AUTHOR=smallmuou
 
 #########################################
@@ -246,6 +246,11 @@ for line in $sizes_mapper; do
         sips -z $size $size $src_file --out $dst_path/$name.png >/dev/null
     fi
     if [ "$idiom" = 'ios-marketing' ]; then
+        # remove the alpha channel from png, because of apple store requires non-alpha
+        sips -s format bmp "$dst_path/$name.png" --out "$dst_path/$name.bmp" >/dev/null
+        sips -s format png "$dst_path/$name.bmp" --out "$dst_path/$name.png" >/dev/null
+        rm -f "$dst_path/$name.bmp"
+        # add
         cat <<EOF >>"$contents_file"
         {
             "size": "${nSize}x${nSize}",

@@ -1,5 +1,15 @@
 # iOS/macOS/watchOS APP ICONS Generator
 
+## Modified version
+
+v2.0.0+mod_by_m2nlight_1
+
+- Reset `sizes_mapper` format
+- Generate `Contents.json` file
+- Remove the alpha channel when ios-marketing type
+
+## Original version
+
 ### Description
 ios-icon-generator is a shell script which aim to generate iOS/macOS/watchOS APP icons easier and simply.
 ![image](https://github.com/smallmuou/ios-icon-generator/blob/master/ios-icon-generator.gif)
